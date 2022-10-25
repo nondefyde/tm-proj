@@ -5,10 +5,9 @@ export const QuestionStyledContainer = styled.div`
 `;
 
 export const QuestionStyledTitle = styled.div`
-	font-size: 25px;
+	font-size: 20px;
 	text-align: justify;
 	text-weight: 600;
-	font-family: "Times New Roman", Times, serif;
 	margin-bottom: 30px;
 `;
 

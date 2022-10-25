@@ -4,7 +4,7 @@ import { QuestionStyledButton, QuestionStyledContainer, QuestionStyledTitle } fr
 import { QuestionItem } from '../question-item';
 
 type QuestionProps = {
-  question: QuestionType
+  question: QuestionType,
 }
 
 export function Question(props: QuestionProps) {
@@ -12,13 +12,19 @@ export function Question(props: QuestionProps) {
   
   const onNextButtonClicked = () => {}
   
+  const onItemClicked = (item: QuestionTypeItem) => {
+    console.log('OUTPUT item ::: ', item);
+  }
+  
   return (
     <QuestionStyledContainer>
       <QuestionStyledTitle>
         {question.title}
       </QuestionStyledTitle>
       {question.items.map((item: QuestionTypeItem) => {
-        return <QuestionItem key={item.id} item={item} />
+        return <QuestionItem
+          onItemClicked={onItemClicked}
+          key={item.id} item={item} />
       })}
       <QuestionStyledButton onClick={onNextButtonClicked}>
         Next Question

@@ -8,15 +8,16 @@ import {
 
 type QuestionItemProps = {
   item: QuestionTypeItem
+  onItemClicked: (item: QuestionTypeItem) => void
 }
 
 export function QuestionItem(props: QuestionItemProps) {
-  const {item} = props;
+  const {item, onItemClicked} = props;
   
   return (
-    <QuestionItemStyledContainer>
+    <QuestionItemStyledContainer onClick={() => onItemClicked(item)}>
       <QuestionStyledIdentifier>
-        {item.identifier}
+        <span>{item.identifier}</span>
       </QuestionStyledIdentifier>
       <QuestionStyledDescription>
         {item.description}

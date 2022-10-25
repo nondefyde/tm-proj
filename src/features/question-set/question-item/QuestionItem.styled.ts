@@ -3,24 +3,29 @@ import styled from 'styled-components';
 export const QuestionItemStyledContainer = styled.div`
 	display: flex;
 	flex-direction: row;
-	font-family: "Times New Roman", Times, serif;
 	padding: 10px;
 	border: 1px solid black;
 	margin-bottom: 5px;
 	background-color: #ffffff;
 	cursor: pointer;
+	gap: 20px;
+	align-items: center;
+	border-radius: 4px;
 `;
 
 export const QuestionStyledIdentifier = styled.div`
-	margin: 0 20px 0 10px;
 	width: 30px;
-	font-size: 20px;
+	height: 30px;
+	min-width: 30px;
+	border-radius: 4px;
+	font-size: 16px;
 	background-color: #cccccc;
+	display: flex;
 	justify-content: center;
-  align-self: center;
+  align-items: center;
 `;
 
 export const QuestionStyledDescription = styled.div`
-	font-size: 18px;
-	text-align: center;
+	font-size: 16px;
+	// text-align: center;
 `;

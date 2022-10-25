@@ -6,11 +6,12 @@ function App() {
   const [showTest, setShowTest] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <span>
-          {!showTest ? <button onClick={() => setShowTest(true)}>Start Personality Test</button> : <QuestionSet/>}
-        </span>
-      </header>
+      {/*<header className="App-header">*/}
+      {/*</header>*/}
+  
+      <main className={'App-main'}>
+        {!showTest ? <button onClick={() => setShowTest(true)}>Start Personality Test</button> : <QuestionSet/>}
+      </main>
     </div>
   );
 }
