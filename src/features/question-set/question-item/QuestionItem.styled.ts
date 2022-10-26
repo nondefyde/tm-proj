@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const QuestionItemStyledContainer = styled.div`
+interface Props {
+	selected: boolean
+}
+
+export const QuestionItemStyledContainer = styled.div<Props>`
   display: flex;
   flex-direction: row;
   padding: 10px;
@@ -10,14 +14,16 @@ export const QuestionItemStyledContainer = styled.div`
   gap: 20px;
   align-items: center;
   border-radius: 4px;
-  border: 1px solid black;
+  border: 1px solid #bbb7b7;
 
   :hover {
     border: 1px solid #d90f0f;
   }
+
+  ${({ selected }) => selected && 'border: 1px solid #d90f0f'}
 `;
 
-export const QuestionStyledIdentifier = styled.div`
+export const QuestionStyledIdentifier = styled.div<Props>`
 	width: 30px;
 	height: 30px;
 	min-width: 30px;
@@ -27,8 +33,13 @@ export const QuestionStyledIdentifier = styled.div`
 	display: flex;
 	justify-content: center;
   align-items: center;
+
+  ${({ selected }) => selected && `
+      background-color: #d90f0f;
+      color: #ffffff
+  `}
 `;
 
 export const QuestionStyledDescription = styled.div`
-	font-size: 16px;
+	font-size: 14px;
 `;

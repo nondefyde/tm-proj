@@ -1,19 +1,25 @@
-import React  from 'react';
-import { QuestionType, QuestionTypeItem } from './index';
-import { QuestionStyledButton, QuestionStyledContainer, QuestionStyledTitle } from './Question.styled';
+import React, { useState } from 'react';
+import { AnswerType, QuestionType, QuestionTypeItem } from './index';
+import { QuestionStyledButton, QuestionStyledContainer, QuestionStyledTitle, StyledButtons } from './Question.styled';
 import { QuestionItem } from '../question-item';
 
 export type QuestionProps = {
+  currentIndex: number,
+  answer?: AnswerType,
   question: QuestionType,
+  onPrevious: (answer?: AnswerType) => void
+  onNext: (answer?: AnswerType) => void
+  answerQuestion: (answer: AnswerType) => void
 }
 
 export function Question(props: QuestionProps) {
-  const {question} = props;
+  const {question, answer,  answerQuestion, onPrevious, onNext, currentIndex} = props;
   
-  const onNextButtonClicked = () => {}
+  const [selected, setSelected] = useState<AnswerType | undefined>(answer);
   
-  const onItemClicked = (item: QuestionTypeItem) => {
-    console.log('OUTPUT item ::: ', item);
+  const onSelected = (answer: AnswerType) => {
+    setSelected(answer);
+    answerQuestion(answer)
   }
   
   return (
@@ -23,12 +29,26 @@ export function Question(props: QuestionProps) {
       </QuestionStyledTitle>
       {question.items.map((item: QuestionTypeItem) => {
         return <QuestionItem
-          onItemClicked={onItemClicked}
+          selectedAnswer={selected}
+          questionId={question.id}
+          onItemClicked={onSelected}
           key={item.id} item={item} />
       })}
-      <QuestionStyledButton onClick={onNextButtonClicked}>
-        Next Question
-      </QuestionStyledButton>
+      <StyledButtons>
+        {currentIndex > 0 &&
+          <QuestionStyledButton
+            disabled={currentIndex <= 0}
+            $isDefault={true}
+            onClick={() => onPrevious(selected)}>
+            Previous Question
+          </QuestionStyledButton>
+        }
+        <QuestionStyledButton
+          disabled={!selected}
+          onClick={() => onNext(selected)}>
+          Next Question
+        </QuestionStyledButton>
+      </StyledButtons>
     </QuestionStyledContainer>
   );
 }

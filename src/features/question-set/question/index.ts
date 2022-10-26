@@ -17,3 +17,8 @@ export type QuestionType = {
 	type: QuestionEnumType,
 	items: QuestionTypeItem[]
 }
+
+export type AnswerType = {
+	questionId: string,
+	item: QuestionTypeItem
+}

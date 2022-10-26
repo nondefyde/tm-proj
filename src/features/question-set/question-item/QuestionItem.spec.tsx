@@ -9,6 +9,8 @@ describe('Question Component', () => {
   
   beforeEach(() => {
     props = {
+      selectedAnswer: undefined,
+      questionId: '1',
       onItemClicked: jest.fn(),
       item: {
         id: '1',

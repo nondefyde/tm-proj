@@ -10,6 +10,10 @@ describe('Question Component', () => {
   
   beforeEach(() => {
     props = {
+      currentIndex: -1,
+      onNext: jest.fn(),
+      onPrevious: jest.fn(),
+      answerQuestion: jest.fn(),
       question: {
         id: '1',
         type: QuestionEnumType.MULTIPLE,
