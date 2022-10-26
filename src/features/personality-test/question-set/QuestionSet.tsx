@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
-import { QuestionSetStyledContainer, QuestionSetStyledStep, StyledCenterContent } from './QuestionSet.styled';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { QuestionSetStyledStep, StyledCenterContent } from './QuestionSet.styled';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import {
   answerQuestion,
   fetchQuestionAsync,
   selectNextQuestion,
   selectPreviousQuestion
-} from './questionSlice';
+} from '../PersonalityTestSlice';
 import { AnswerType, Question } from './question';
-import { RootState } from '../../app/store';
+import { RootState } from '../../../app/store';
 
 export const QuestionSet = () => {
   const dispatch = useAppDispatch();
   
-  const { questions, status, answers, current, currentIndex } = useAppSelector(({ questionSet }: RootState) => questionSet);
+  const { questions, status, answers, current, currentIndex } = useAppSelector(({ personalityTest }: RootState) => personalityTest);
   
   useEffect(() => {
     dispatch(fetchQuestionAsync())
@@ -21,7 +21,6 @@ export const QuestionSet = () => {
   
   const onNext = (answer?: AnswerType) => {
     if(answer) {
-      console.log('output answer ', answer.questionId)
       dispatch(selectNextQuestion(answer.questionId))
     }
   }
@@ -36,7 +35,7 @@ export const QuestionSet = () => {
   
   
   return (
-    <QuestionSetStyledContainer>
+    <div>
       {
         !questions.length || status === 'loading' ?
           <StyledCenterContent>
@@ -63,6 +62,6 @@ export const QuestionSet = () => {
             }
           </div>
       }
-    </QuestionSetStyledContainer>
+    </div>
   );
 }

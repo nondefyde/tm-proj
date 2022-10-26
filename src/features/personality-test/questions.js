@@ -1,4 +1,4 @@
-import {QuestionEnumType} from './question';
+import {QuestionEnumType} from './question-set/question';
 
 export const allQuestions = [
   {

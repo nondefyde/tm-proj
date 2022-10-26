@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchQuestion } from './questionsAPI';
-import { AnswerType, QuestionType } from './question';
+import { fetchQuestion } from './question-set/questionsAPI';
+import { AnswerType, QuestionType } from './question-set/question';
+import { RootState } from '../../app/store';
 
 export interface QuestionSetState {
   questions: QuestionType[];
@@ -27,8 +28,8 @@ export const fetchQuestionAsync = createAsyncThunk(
   }
 );
 
-export const questionSetSlice = createSlice({
-  name: 'questionSet',
+export const personalityTestSlice = createSlice({
+  name: 'personalityTest',
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
@@ -49,6 +50,12 @@ export const questionSetSlice = createSlice({
     },
     answerQuestion: (state, action: PayloadAction<AnswerType>) => {
       state.answers[action.payload.questionId] = action.payload;
+    },
+  
+    resetTest: (state) => {
+      state.current = undefined;
+      state.currentIndex = 0;
+      state.answers = {};
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -72,6 +79,6 @@ export const questionSetSlice = createSlice({
   },
 });
 
-export const { answerQuestion, selectNextQuestion, selectPreviousQuestion } = questionSetSlice.actions;
+export const { answerQuestion, resetTest, selectNextQuestion, selectPreviousQuestion } = personalityTestSlice.actions;
 
-export default questionSetSlice.reducer;
+export default personalityTestSlice.reducer;

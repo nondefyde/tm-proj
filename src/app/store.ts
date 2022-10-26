@@ -1,11 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
-import questionSetReducer from '../features/question-set/questionSlice';
+import personalityTestReducer, { personalityTestSlice } from '../features/personality-test/PersonalityTestSlice';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    questionSet: questionSetReducer,
+    personalityTest: personalityTestReducer,
   },
 });
 
