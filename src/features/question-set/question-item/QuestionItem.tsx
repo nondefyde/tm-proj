@@ -6,7 +6,7 @@ import {
   QuestionStyledIdentifier
 } from './QuestionItem.styled';
 
-type QuestionItemProps = {
+export type QuestionItemProps = {
   item: QuestionTypeItem
   onItemClicked: (item: QuestionTypeItem) => void
 }

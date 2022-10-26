@@ -1,16 +1,20 @@
 import styled from 'styled-components';
 
 export const QuestionItemStyledContainer = styled.div`
-	display: flex;
-	flex-direction: row;
-	padding: 10px;
-	border: 1px solid black;
-	margin-bottom: 5px;
-	background-color: #ffffff;
-	cursor: pointer;
-	gap: 20px;
-	align-items: center;
-	border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #ffffff;
+  cursor: pointer;
+  gap: 20px;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid black;
+
+  :hover {
+    border: 1px solid #d90f0f;
+  }
 `;
 
 export const QuestionStyledIdentifier = styled.div`
@@ -27,5 +31,4 @@ export const QuestionStyledIdentifier = styled.div`
 
 export const QuestionStyledDescription = styled.div`
 	font-size: 16px;
-	// text-align: center;
 `;

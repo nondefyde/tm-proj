@@ -3,7 +3,7 @@ import { QuestionType, QuestionTypeItem } from './index';
 import { QuestionStyledButton, QuestionStyledContainer, QuestionStyledTitle } from './Question.styled';
 import { QuestionItem } from '../question-item';
 
-type QuestionProps = {
+export type QuestionProps = {
   question: QuestionType,
 }
 
