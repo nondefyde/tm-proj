@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchQuestion } from './question-set/questionsAPI';
 import { AnswerType, QuestionType } from './question-set/question';
-import { RootState } from '../../app/store';
 
 export interface QuestionSetState {
   questions: QuestionType[];
   current?: QuestionType;
   currentIndex: number;
   answers: Record<string, AnswerType>;
+  isFinished: boolean;
   status: 'idle' | 'loading' | 'failed';
 }
 
@@ -17,6 +17,7 @@ const initialState: QuestionSetState = {
   current: undefined,
   answers: {},
   status: 'idle',
+  isFinished: false,
 };
 
 export const fetchQuestionAsync = createAsyncThunk(
@@ -39,6 +40,8 @@ export const personalityTestSlice = createSlice({
       if (state.questions[index]) {
         state.current = state.questions[index];
         state.currentIndex = index;
+      } else {
+        state.isFinished = true;
       }
     },
     selectPreviousQuestion: (state) => {
@@ -56,6 +59,7 @@ export const personalityTestSlice = createSlice({
       state.current = undefined;
       state.currentIndex = 0;
       state.answers = {};
+      state.isFinished = false;
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,

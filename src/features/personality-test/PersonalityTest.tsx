@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import { QuestionSet } from './question-set';
 import { Result } from './result';
 import { TestContainer } from './PersonalityTest.styled';
-import { useAppDispatch } from '../../app/hooks';
+import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../app/store';
 
 
 export const PersonalityTest = () => {
-	const dispatch = useAppDispatch();
-	const [show, setShow] = useState(true);
-	
-	const onRetake = () => {
-		setShow(false);
-	}
-	
+	const { isFinished } = useAppSelector(({ personalityTest }: RootState) => personalityTest);
 	return (
 		<TestContainer>
-			{show ? <QuestionSet/> : <Result onRetake={onRetake}/>}
+			{!isFinished ? <QuestionSet/> : <Result/>}
 		</TestContainer>
 	)
 }

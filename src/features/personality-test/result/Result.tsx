@@ -4,14 +4,7 @@ import { QuestionStyledButton, StyledButtons } from '../question-set/question/Qu
 import { useAppDispatch } from '../../../app/hooks';
 import { resetTest } from '../PersonalityTestSlice';
 
-
-export type ResultProps = {
-  onRetake: () => void
-}
-
-export const Result = (props: ResultProps) => {
-  const {onRetake} = props;
-  
+export const Result = () => {
   const dispatch = useAppDispatch();
   
   const onShowAnswers = () => {
@@ -19,7 +12,6 @@ export const Result = (props: ResultProps) => {
   
   const onRetakeTest = () => {
     dispatch(resetTest());
-    onRetake()
   }
   
   return (
