@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <main className={'App-main'}>
-        {!showTest ? <button onClick={() => setShowTest(true)}>Start Personality Test</button> : <PersonalityTest/>}
+        {!showTest ? <button className='take-test' onClick={() => setShowTest(true)}>Start Personality Test</button> : <PersonalityTest/>}
       </main>
     </div>
   );

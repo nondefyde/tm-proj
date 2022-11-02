@@ -1,5 +1,5 @@
 // A mock function to mimic making an async request for data
-import { allQuestions } from '../questions';
+import { allQuestions } from '../data';
 import { QuestionType } from './question';
 
 export function fetchQuestion() {

@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchQuestion } from './question-set/questionsAPI';
-import { AnswerType, QuestionType } from './question-set/question';
+import { AnswerType, QuestionType, ResultType } from './question-set/question';
+import { resultData } from './data';
+import { RootState } from '../../app/store';
 
 export interface QuestionSetState {
   questions: QuestionType[];
@@ -9,6 +11,7 @@ export interface QuestionSetState {
   answers: Record<string, AnswerType>;
   isFinished: boolean;
   status: 'idle' | 'loading' | 'failed';
+  result?: ResultType;
 }
 
 const initialState: QuestionSetState = {
@@ -18,6 +21,7 @@ const initialState: QuestionSetState = {
   answers: {},
   status: 'idle',
   isFinished: false,
+  result: undefined
 };
 
 export const fetchQuestionAsync = createAsyncThunk(
@@ -42,6 +46,8 @@ export const personalityTestSlice = createSlice({
         state.currentIndex = index;
       } else {
         state.isFinished = true;
+         const rand = Math.floor(Math.random() * 10);
+        state.result = rand % 2 ? resultData[0] : resultData[1];
       }
     },
     selectPreviousQuestion: (state) => {
@@ -82,6 +88,8 @@ export const personalityTestSlice = createSlice({
       });
   },
 });
+
+export const selectResult = (state: RootState) => state.personalityTest.result;
 
 export const { answerQuestion, resetTest, selectNextQuestion, selectPreviousQuestion } = personalityTestSlice.actions;
 

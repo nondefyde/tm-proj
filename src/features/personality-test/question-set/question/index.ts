@@ -22,3 +22,9 @@ export type AnswerType = {
 	questionId: string,
 	item: QuestionTypeItem
 }
+
+export type ResultType = {
+	type: string,
+	title: string
+	description: string
+}
