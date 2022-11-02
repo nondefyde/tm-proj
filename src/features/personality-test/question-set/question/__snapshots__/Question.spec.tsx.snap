@@ -13,28 +13,13 @@ Object {
         >
           Title
         </div>
-        <div
-          class="sc-eDvSVe gsZhvf"
-        >
-          <div
-            class="sc-jSUZER hhsxcT"
-          >
-            <span>
-              A
-            </span>
-          </div>
-          <div
-            class="sc-gKPRtg kuQAMJ"
-          >
-            Don’t dare to interrupt them
-          </div>
-        </div>
+        ***Question***
         <div
           class="sc-hLBbgP bXfvrS"
         >
           <button
             class="sc-dkrFOg fvHCOW"
-            disabled=""
+            data-testid="next-button"
           >
             Next Question
           </button>
@@ -51,28 +36,13 @@ Object {
       >
         Title
       </div>
-      <div
-        class="sc-eDvSVe gsZhvf"
-      >
-        <div
-          class="sc-jSUZER hhsxcT"
-        >
-          <span>
-            A
-          </span>
-        </div>
-        <div
-          class="sc-gKPRtg kuQAMJ"
-        >
-          Don’t dare to interrupt them
-        </div>
-      </div>
+      ***Question***
       <div
         class="sc-hLBbgP bXfvrS"
       >
         <button
           class="sc-dkrFOg fvHCOW"
-          disabled=""
+          data-testid="next-button"
         >
           Next Question
         </button>

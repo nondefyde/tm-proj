@@ -13,9 +13,11 @@ export type QuestionProps = {
 }
 
 export function Question(props: QuestionProps) {
-  const {question, answer,  answerQuestion, onPrevious, onNext, currentIndex} = props;
+  const { question, answer, answerQuestion, onPrevious, onNext, currentIndex } = props;
   
   const [selected, setSelected] = useState<AnswerType | undefined>(answer);
+  
+  console.log('selected ::: ', selected);
   
   const onSelected = (answer: AnswerType) => {
     setSelected(answer);
@@ -37,6 +39,7 @@ export function Question(props: QuestionProps) {
       <StyledButtons>
         {currentIndex > 0 &&
           <QuestionStyledButton
+            data-testid={'previous-button'}
             disabled={currentIndex <= 0}
             $isDefault={true}
             onClick={() => onPrevious(selected)}>
@@ -44,6 +47,7 @@ export function Question(props: QuestionProps) {
           </QuestionStyledButton>
         }
         <QuestionStyledButton
+          data-testid={'next-button'}
           disabled={!selected}
           onClick={() => onNext(selected)}>
           Next Question

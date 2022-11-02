@@ -23,6 +23,7 @@ describe('Result Component', () => {
   afterEach(() => {
     useAppSelectorMock.mockClear();
     useAppDispatchMock.mockClear();
+    useStateMock.mockClear();
   });
   
   beforeEach(() => {

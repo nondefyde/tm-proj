@@ -21,9 +21,6 @@ export const Result = () => {
   
   const { questions, answers } = useAppSelector(({ personalityTest }: RootState) => personalityTest);
   
-  console.log('questions ::: ', questions);
-  console.log('showAnswer ::: ', showAnswer);
-  
   const onShowAnswers = () => {
     setShowAnswer(!showAnswer)
   }

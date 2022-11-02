@@ -2,10 +2,10 @@ import personalityTestSlice, {
   answerQuestion,
   QuestionSetState,
   resetTest,
-  selectNextQuestion, selectPreviousQuestion
+  selectNextQuestion,
+  selectPreviousQuestion
 } from './PersonalityTestSlice';
 import { QuestionEnumType, QuestionType } from './question-set/question';
-import { allQuestions } from './data';
 
 describe('PersonalityTest reducer', () => {
   const initialState: QuestionSetState = {

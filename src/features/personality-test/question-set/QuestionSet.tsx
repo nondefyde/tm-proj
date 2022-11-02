@@ -42,18 +42,17 @@ export const QuestionSet = () => {
             Loading...
           </StyledCenterContent> :
           <div>
-            {questions.length && current ?
-              <div>
-                <QuestionSetStyledStep>
-                  {questions.length ? `Question ${currentIndex + 1}/${questions.length}` : ''}
-                </QuestionSetStyledStep>
-                <Question
-                  currentIndex={currentIndex}
-                  key={current.id}
-                  answer={answers[current.id]}
-                  onPrevious={onPrevious}
-                  onNext={onNext}
-                  answerQuestion={onAnsweredQuestion}
+            {current ?
+	            <div>
+		            <QuestionSetStyledStep>
+			            {questions.length ? `Question ${currentIndex + 1}/${questions.length}` : ''}
+		            </QuestionSetStyledStep>
+		            <Question
+			            currentIndex={currentIndex}
+			            answer={answers[current.id]}
+			            onPrevious={onPrevious}
+			            onNext={onNext}
+			            answerQuestion={onAnsweredQuestion}
                   question={current}/>
               </div>
               : <StyledCenterContent>
