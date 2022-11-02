@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { Result } from './index';
 import * as react from 'react'
 import * as hooks from '../../../app/hooks';
@@ -19,8 +19,6 @@ describe('Result Component', () => {
   
   const setShowAnswer = jest.fn();
   const showAnswer = false;
-  
-  afterEach(cleanup);
   
   afterEach(() => {
     useAppSelectorMock.mockClear();
