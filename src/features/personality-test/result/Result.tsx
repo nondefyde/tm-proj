@@ -21,6 +21,9 @@ export const Result = () => {
   
   const { questions, answers } = useAppSelector(({ personalityTest }: RootState) => personalityTest);
   
+  console.log('questions ::: ', questions);
+  console.log('showAnswer ::: ', showAnswer);
+  
   const onShowAnswers = () => {
     setShowAnswer(!showAnswer)
   }
@@ -40,11 +43,13 @@ export const Result = () => {
           </ResultStyledContent>
           <StyledButtons>
             <QuestionStyledButton
+              data-testid={'retake'}
               $isDefault={true}
               onClick={onRetakeTest}>
               Retake Question
             </QuestionStyledButton>
             <QuestionStyledButton
+              data-testid={'show-answer'}
               onClick={onShowAnswers}>
               {`${showAnswer ? 'Show': 'Hide'} my Answers`}
             </QuestionStyledButton>
