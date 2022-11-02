@@ -17,8 +17,6 @@ export function Question(props: QuestionProps) {
   
   const [selected, setSelected] = useState<AnswerType | undefined>(answer);
   
-  console.log('selected ::: ', selected);
-  
   const onSelected = (answer: AnswerType) => {
     setSelected(answer);
     answerQuestion(answer)

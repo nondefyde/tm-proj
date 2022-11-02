@@ -55,7 +55,7 @@ export const Result = () => {
       }
       <ResultQuestionContainer>
         {showAnswer && questions.length && questions.map((question) => {
-          return <div>
+          return <div key={question.id}>
             <QuestionStyledTitle>
               {question.title}
             </QuestionStyledTitle>
