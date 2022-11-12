@@ -1,10 +1,8 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
-import personalityTestReducer, { personalityTestSlice } from '../features/personality-test/PersonalityTestSlice';
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
+import personalityTestReducer from '../features/personality-test/PersonalityTestSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     personalityTest: personalityTestReducer,
   },
 });
